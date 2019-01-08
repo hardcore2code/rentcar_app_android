@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/footer"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/white"
+                android:clipChildren="false"
+                android:orientation="vertical">
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/line"
+        android:orientation="horizontal">
+
+        <com.static4u.netcar.ui.MaterialRippleLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            app:mrl_rippleAlpha="0"
+            app:mrl_rippleColor="@color/transparent"
+            app:mrl_rippleDelayClick="false"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true"
+            app:mrl_rippleScaleDuration="@integer/ripple_scale_duration_long">
+
+            <TextView
+                android:id="@+id/tv_tab_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:text="首页"
+                android:textColor="@color/font_gray"
+                android:textSize="@dimen/font_20"/>
+
+        </com.static4u.netcar.ui.MaterialRippleLayout>
+
+        <com.static4u.netcar.ui.MaterialRippleLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:mrl_rippleAlpha="0"
+            app:mrl_rippleColor="@color/transparent"
+            app:mrl_rippleDelayClick="false"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true"
+            app:mrl_rippleScaleDuration="@integer/ripple_scale_duration_long">
+
+            <ImageView
+                android:id="@+id/iv_tab_add"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@drawable/shape_yellow_button"
+                android:gravity="center"
+                android:padding="8dp"
+                android:src="@drawable/add"/>
+
+        </com.static4u.netcar.ui.MaterialRippleLayout>
+
+        <com.static4u.netcar.ui.MaterialRippleLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            app:mrl_rippleAlpha="0"
+            app:mrl_rippleColor="@color/transparent"
+            app:mrl_rippleDelayClick="false"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true"
+            app:mrl_rippleScaleDuration="@integer/ripple_scale_duration_long">
+
+            <TextView
+                android:id="@+id/tv_tab_mine"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:text="我的"
+                android:textColor="@color/font_gray"
+                android:textSize="@dimen/font_20"/>
+
+        </com.static4u.netcar.ui.MaterialRippleLayout>
+    </LinearLayout>
+</RelativeLayout>

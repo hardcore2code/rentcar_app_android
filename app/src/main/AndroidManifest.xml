@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.static4u.netcar"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:name=".app.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".base.BaseActivity"
+            android:screenOrientation="nosensor"/>
+        <activity
+            android:name=".activity._splash.FakeActivity"
+            android:screenOrientation="nosensor"
+            android:theme="@style/FakeTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity._splash.SplashActivity"
+            android:screenOrientation="nosensor"
+            android:theme="@style/SplashTheme">
+        </activity>
+        <activity
+            android:name=".activity.home.HomeActivity"
+            android:screenOrientation="nosensor">
+        </activity>
+        <activity
+            android:name=".activity.MineActivity"
+            android:screenOrientation="nosensor">
+        </activity>
+        <activity android:name=".activity.CarListActivity">
+        </activity>
+        <activity android:name=".activity.login.LoginPhoneActivity">
+        </activity>
+        <activity android:name=".activity.login.SendCodeActivity">
+        </activity>
+        <activity android:name=".activity.login.LoginTypeActivity">
+        </activity>
+        <activity android:name=".activity.login.LoginAccountActivity">
+        </activity>
+        <activity android:name=".activity.login.EditInfoActivity">
+        </activity>
+    </application>
+
+</manifest>

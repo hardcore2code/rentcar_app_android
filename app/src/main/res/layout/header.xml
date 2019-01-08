@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/header"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@color/colorPrimary"
+    android:fitsSystemWindows="true"
+    android:gravity="center_vertical">
+
+    <com.static4u.netcar.ui.MaterialRippleLayout
+        android:id="@+id/mr_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:mrl_rippleAlpha="@dimen/ripple_alpha_dark"
+        app:mrl_rippleColor="@color/ripple"
+        app:mrl_rippleDelayClick="false"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true"
+        app:mrl_rippleScaleDuration="@integer/ripple_scale_duration_long">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:clickable="true"
+            android:onClick="clickBack"
+            android:padding="16dp"
+            android:src="@drawable/ic_arrow_left"/>
+    </com.static4u.netcar.ui.MaterialRippleLayout>
+
+    <TextView
+        android:id="@+id/tv_header"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/mr_back"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="title"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_16"/>
+
+    <ImageButton
+        android:id="@+id/ib_save"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="16dp"
+        android:background="@null"
+        android:onClick="clickDownload"
+        android:padding="14dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/share"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tv_btn_right"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
+        android:minWidth="48dp"
+        android:padding="4dp"
+        android:singleLine="true"
+        android:text="btn"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_14"
+        android:visibility="gone"/>
+</RelativeLayout>

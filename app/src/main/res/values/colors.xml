@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFC04C</color>
+    <color name="colorPrimaryDark">#FFC04C</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="color_blue">#30A1E4</color>
+    <color name="color_red">#E85555</color>
+    <color name="color_gray">#F0F0F0</color>
+
+    <color name="color_blue_light">#4092EB</color>
+    <color name="color_red_light">#F85D8C</color>
+    <color name="color_yellow">#FFC04C</color>
+    <color name="background">#f1f1f1</color>
+    <color name="ct4_c6c6c6">#c6c6c6</color>
+
+    <!-- 扫描用到的 -->
+    <color name="viewfinder_laser">#ffff0000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+
+    <color name="green_dark">#2E8B57</color>
+    <color name="green_light">#41CFBE</color>
+    <color name="brown">#48332F</color>
+    <color name="green_light_bg">#E5F2F2</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="white_trans">#EFFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="font_gray_dark">#555555</color>
+    <color name="font_gray">#848484</color>
+    <color name="font_dark">#161616</color>
+    <color name="gray_line">#cccccc</color>
+
+    <color name="ripple">#eecccccc</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="trans_black">#88000000</color>
+
+    <drawable name="transparent">#00ffffff</drawable>
+
+    <color name="grid_bg_default_color">#fff5f5f5</color>
+    <color name="orange_pressed_color">#fb7805</color>
+    <color name="orange_original_color">#ff9538</color>
+    <color name="blue_pressed_color">#08a3ed</color>
+    <color name="blue_original_color">#3bb5f0</color>
+
+    <color name="text_color">#000000</color>
+    <color name="divider_color">#11000000</color>
+    <color name="msg_color">#FFFFFFFF</color>
+
+    <color name="scroll_bar_color">#999999</color>
+    <color name="black_303030">#111111</color>
+    <color name="gray_c9c9c9">#c9c9c9</color>
+    <color name="scroll_bar_bg">#00ffffff</color>
+</resources>

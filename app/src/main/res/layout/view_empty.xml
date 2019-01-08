@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/rl_empty"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background"
+                android:clickable="true"
+                android:gravity="center_horizontal"
+                android:splitMotionEvents="false"
+                android:visibility="gone">
+
+    <ImageView
+        android:id="@+id/iv_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/ic_empty"/>
+
+    <TextView
+        android:id="@+id/tv_empty_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_empty"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:minHeight="48dp"
+        android:text="没找到您要的东西哦!"
+        android:textColor="#696969"
+        android:textSize="13sp"/>
+
+    <Button
+        android:id="@+id/btn_empty_action"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@id/tv_empty_msg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_red_button"
+        android:gravity="center"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/reload"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

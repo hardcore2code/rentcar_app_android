@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_yellow"
+    android:fitsSystemWindows="true"
+    android:onClick="clickView"
+    tools:context=".activity.login.LoginTypeActivity">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:clickable="true"
+        android:onClick="clickBack"
+        android:padding="10dp"
+        android:src="@drawable/arrow_left"/>
+
+    <TextView
+        android:id="@+id/tv_h1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_back"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="24dp"
+        android:text="更多方式"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_24"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tv_account"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/tv_h1"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rect_green"
+        android:gravity="center"
+        android:text="帐号密码"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_18"/>
+
+    <TextView
+        android:id="@+id/tv_wechat"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/tv_account"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rect_green"
+        android:gravity="center"
+        android:text="微信登录"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_18"/>
+
+
+</RelativeLayout>

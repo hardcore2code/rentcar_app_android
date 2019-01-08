@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rl_dialog_msg"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/v_plur"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.3"
+        android:background="@color/black"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:clickable="true"
+            android:paddingBottom="4dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="20dp">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginTop="-8dp"
+                android:gravity="center_vertical"
+                android:text="@string/tip"
+                android:textColor="@color/color_yellow"
+                android:textSize="@dimen/font_16"/>
+
+            <TextView
+                android:id="@+id/tv_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title"
+                android:layout_marginTop="8dp"
+                android:text="@string/net_error"
+                android:textSize="16sp"/>
+
+            <ProgressBar
+                android:id="@+id/pb_download"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_below="@id/tv_msg"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="32dp"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="80"
+                android:progressDrawable="@drawable/progressbar_mini"
+                android:visibility="gone"/>
+
+            <com.static4u.netcar.ui.MaterialRippleLayout
+                android:id="@+id/mrl_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/tv_msg"
+                android:layout_marginTop="8dp"
+                app:mrl_rippleAlpha="@dimen/ripple_alpha_dark"
+                app:mrl_rippleColor="@color/ripple"
+                app:mrl_rippleDelayClick="false"
+                app:mrl_rippleHover="true"
+                app:mrl_rippleOverlay="true"
+                app:mrl_rippleScaleDuration="@integer/ripple_scale_duration_middle">
+
+                <TextView
+                    android:id="@+id/btn_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:minWidth="60dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:text="@string/delete"
+                    android:textColor="@color/color_red_light"
+                    android:textSize="16sp"/>
+            </com.static4u.netcar.ui.MaterialRippleLayout>
+
+            <com.static4u.netcar.ui.MaterialRippleLayout
+                android:id="@+id/mrl_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_msg"
+                android:layout_marginTop="8dp"
+                android:layout_toLeftOf="@id/mrl_right"
+                android:visibility="gone"
+                app:mrl_rippleAlpha="@dimen/ripple_alpha_dark"
+                app:mrl_rippleColor="@color/ripple"
+                app:mrl_rippleDelayClick="false"
+                app:mrl_rippleHover="true"
+                app:mrl_rippleOverlay="true"
+                app:mrl_rippleScaleDuration="@integer/ripple_scale_duration_middle">
+
+                <TextView
+                    android:id="@+id/btn_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:minWidth="60dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:text="@string/cancel"
+                    android:textSize="16sp"/>
+            </com.static4u.netcar.ui.MaterialRippleLayout>
+        </RelativeLayout>
+
+        <com.static4u.netcar.ui.MaterialRippleLayout
+            android:id="@+id/mrl_close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="4dp"
+            app:mrl_rippleAlpha="@dimen/ripple_alpha_dark"
+            app:mrl_rippleColor="@color/ripple"
+            app:mrl_rippleDelayClick="false"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true"
+            app:mrl_rippleRoundedCorners="20dp"
+            app:mrl_rippleScaleDuration="@integer/ripple_scale_duration_long">
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="14dp"
+                android:src="@drawable/widget_icon_close"/>
+        </com.static4u.netcar.ui.MaterialRippleLayout>
+    </RelativeLayout>
+</RelativeLayout>

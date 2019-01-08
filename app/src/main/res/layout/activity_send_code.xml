@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_yellow"
+    android:fitsSystemWindows="true"
+    android:onClick="clickView"
+    tools:context=".activity.login.SendCodeActivity">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:clickable="true"
+        android:onClick="clickBack"
+        android:padding="10dp"
+        android:src="@drawable/arrow_left"/>
+
+    <TextView
+        android:id="@+id/tv_h1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_back"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="24dp"
+        android:text="输入6位验证码"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_24"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tv_h2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_h1"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/send_code"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_18"/>
+
+    <TextView
+        android:id="@+id/tv_h3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_h2"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="24dp"
+        android:text="验证码"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_18"/>
+
+    <TextView
+        android:id="@+id/tv_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tv_h2"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="24dp"
+        android:clickable="true"
+        android:onClick="clickSend"
+        android:text="重新获取"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_18"/>
+
+    <com.static4u.netcar.ui.MyEditText
+        android:id="@+id/et_code"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/tv_h3"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:digits="0123456789"
+        android:gravity="center_vertical"
+        android:hint="输入验证码"
+        android:inputType="phone"
+        android:maxLength="6"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white_trans"
+        android:textSize="@dimen/font_20"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/et_code"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@color/white"/>
+
+    <TextView
+        android:id="@+id/tv_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_code"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="16dp"
+        android:text="请输入6位验证码"
+        android:textColor="@color/color_red"
+        android:textSize="@dimen/font_14"
+        android:visibility="gone"/>
+
+    <include layout="@layout/view_progress"/>
+</RelativeLayout>

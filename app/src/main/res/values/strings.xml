@@ -1,0 +1,28 @@
+<resources xmlns:tools="http://schemas.android.com/tools"
+           tools:ignore="MissingTranslation">
+    <string name="app_name">netCar</string>
+
+    <string name="i_know">知道了</string>
+    <string name="submit">提交</string>
+    <string name="warn">警告</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="net_error">服务器繁忙，请稍后再试</string>
+    <string name="reload">重新加载</string>
+    <string name="loading">正在加载</string>
+    <string name="tip">提示</string>
+    <string name="no_choose">未选择</string>
+    <string name="to">至</string>
+    <string name="choose_date">选择查询属期范围</string>
+    <string name="previous">上一个</string>
+    <string name="done">完成</string>
+    <string name="next">下一个</string>
+    <string name="delete">删除</string>
+    <string name="try_again">再试一次</string>
+    <string name="empty">没有找到您想要的信息！</string>
+    <string name="connect_fail">获取信息失败，请稍候再试</string>
+    <string name="service_line">客\n服</string>
+    <string name="service_line_ask">立即拨打客服热线？</string>
+
+    <string name="send_code">我们向%1$s发送了一个验证码，请再下方输入。</string>
+</resources>

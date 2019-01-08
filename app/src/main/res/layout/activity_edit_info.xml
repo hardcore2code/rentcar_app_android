@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:onClick="clickView"
+    tools:context=".activity.login.EditInfoActivity">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:clickable="true"
+        android:onClick="clickBack"
+        android:padding="10dp"
+        android:src="@drawable/arrow_left"
+        android:tint="@color/black"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/iv_back"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_h1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="编辑个人信息"
+                android:textColor="@color/font_dark"
+                android:textSize="@dimen/font_24"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tv_h2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="姓名"
+                android:textColor="@color/font_dark"
+                android:textSize="@dimen/font_18"/>
+
+            <com.static4u.netcar.ui.MyEditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:background="@null"
+                android:digits="0123456789"
+                android:gravity="center_vertical"
+                android:hint="输入手机号"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white_trans"
+                android:textSize="@dimen/font_20"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="密码"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_18"/>
+
+            <com.static4u.netcar.ui.MyEditText
+                android:id="@+id/et_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="输入密码"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white_trans"
+                android:textSize="@dimen/font_20"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white"/>
+
+            <TextView
+                android:id="@+id/tv_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="请输入11位手机号"
+                android:textColor="@color/color_red"
+                android:textSize="@dimen/font_14"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/view_progress"/>
+</RelativeLayout>
