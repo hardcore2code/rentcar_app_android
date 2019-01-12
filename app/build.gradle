@@ -1,6 +1,20 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'netcar'
+            keyPassword '1qazxsw2'
+            storeFile file('/Users/static/Documents/workspace_as/netCar/keyStore')
+            storePassword '1qazxsw2'
+
+//            MD5:  9F:6A:4E:99:DC:8C:AE:57:30:8D:19:E4:95:C5:D7:0B
+//            SHA1: 93:AC:D6:35:C2:1E:69:AB:2E:20:EE:A8:A9:FC:DF:E7:F9:72:48:BC
+//            SHA256: 99:B3:64:F9:95:CE:8B:FB:4B:0D:A8:5A:12:B9:01:A4:E0:7E:FE:33:2A:1D:3E:A6:90:9C:60:FE:E5:68:F0:14
+//            Signature algorithm name: SHA256withRSA
+//            Version: 3
+        }
+    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.static4u.netcar"
@@ -15,6 +29,11 @@ android {
             }
         }
     }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
     useLibrary 'org.apache.http.legacy'
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
@@ -26,6 +45,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            signingConfig signingConfigs.config
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
     }
 }
 
@@ -34,6 +57,7 @@ dependencies {
     implementation files('libs/httpclient-4.5.1.jar')
     implementation files('libs/httpcore-4.4.3.jar')
     implementation files('libs/httpmime-4.5.1.jar')
+    implementation files('libs/BaiduLBS_Android.jar')
     implementation project(':PullToRefresh')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'
@@ -43,4 +67,5 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.jakewharton:butterknife:7.0.1'
     implementation 'com.android.support:cardview-v7:27.1.1'
+    implementation 'com.gyf.immersionbar:immersionbar:2.3.3-beta15'
 }
