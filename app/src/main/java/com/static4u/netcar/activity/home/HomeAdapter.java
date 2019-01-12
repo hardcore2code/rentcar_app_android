@@ -8,9 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.static4u.netcar.R;
+import com.static4u.netcar.activity.detail.CarDetailActivity;
+import com.static4u.netcar.base.BaseActivity;
+import com.static4u.netcar.constant.GlobalConstant;
 import com.static4u.netcar.model.CarInfo;
 import com.static4u.netcar.utils.CommonUtil;
 
@@ -23,11 +27,13 @@ public class HomeAdapter extends BaseAdapter {
     private Context context;
     private List<CarInfo> data;
     private LayoutInflater lf;
+    private int w;
 
     public HomeAdapter(Context context, List<CarInfo> data) {
         this.context = context;
         this.data = data;
         this.lf = LayoutInflater.from(context);
+        this.w = CommonUtil.getScreenWidth(context) - CommonUtil.dipTopx(context, 24) * 2;
     }
 
     public void update(List<CarInfo> data) {
@@ -60,18 +66,26 @@ public class HomeAdapter extends BaseAdapter {
         return view;
     }
 
-    private void initViews(CarInfo item, CarViewHolder holder) {
-            holder.tvType.setText(item.getType());
-            holder.tvCompany.setText(item.getCompany());
-            holder.tvName.setText(item.getName());
-            holder.tvPrice.setText("¥" + item.getPrice());
-            holder.tvPriceOld.setText("¥" + item.getPriceOld());
-            CommonUtil.addMidLine(holder.tvPriceOld);
-            holder.tvSub.setText(item.getSub());
+    private void initViews(final CarInfo item, CarViewHolder holder) {
+        holder.tvType.setText(item.getType());
+        holder.tvBrand.setText(item.getBrand());
+        holder.tvName.setText(item.getName());
+        holder.tvPrice.setText("¥" + item.getPrice());
+        holder.tvPriceOld.setText("¥" + item.getPriceOld());
+        CommonUtil.addMidLine(holder.tvPriceOld);
+        holder.tvSub.setText(item.getSub());
 
-            holder.vpCar.setAdapter(new ImagePagerAdapter(context, item.getImgList()));
-            holder.vpCar.setOnPageChangeListener(new ImagePageChangeListener(context, holder.llIndex, item));
-            holder.vpCar.setCurrentItem(item.getpIndex());
+        holder.vpCar.setAdapter(new ImagePagerAdapter(context, item.getImgList()));
+        holder.vpCar.setOnPageChangeListener(new ImagePageChangeListener(context, holder.llIndex, item));
+        holder.vpCar.setCurrentItem(item.getpIndex());
+        holder.vpCar.setLayoutParams(new RelativeLayout.LayoutParams(w, w * GlobalConstant.IMG_HEIGHT / GlobalConstant.IMG_WIDTH));
+
+        holder.cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CarDetailActivity.startDetail((BaseActivity) context, item);
+            }
+        });
     }
 
     static class CarViewHolder {
@@ -84,8 +98,8 @@ public class HomeAdapter extends BaseAdapter {
         LinearLayout llIndex;
         @Bind(R.id.tv_type)
         TextView tvType;
-        @Bind(R.id.tv_company)
-        TextView tvCompany;
+        @Bind(R.id.tv_brand)
+        TextView tvBrand;
         @Bind(R.id.tv_name)
         TextView tvName;
         @Bind(R.id.tv_price)

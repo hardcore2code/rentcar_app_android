@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="@color/white">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="4dp"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="12dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp">
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/tag_yellow"
+                android:gravity="center"
+                android:paddingBottom="2dp"
+                android:text="租"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_14"/>
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="套餐1 - 连三月租"
+                android:textColor="@color/font_dark"
+                android:textSize="@dimen/font_18"/>
+
+            <TextView
+                android:id="@+id/tv_intro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_name"
+                android:layout_marginTop="12dp"
+                android:text="送保险再送15天"
+                android:textColor="@color/font_dark"
+                android:textSize="@dimen/font_16"/>
+
+            <TextView
+                android:id="@+id/tv_deposit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/tv_price"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/line"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="保证金3000元"
+                android:textColor="@color/font_gray_dark"
+                android:textSize="@dimen/font_14"/>
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_intro"
+                android:layout_marginTop="8dp"
+                android:layout_toLeftOf="@id/tv_deposit"
+                android:text="计时费200元/月"
+                android:textColor="@color/font_gray_dark"
+                android:textSize="@dimen/font_14"/>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</FrameLayout>

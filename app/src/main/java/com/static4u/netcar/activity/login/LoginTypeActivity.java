@@ -44,6 +44,9 @@ public class LoginTypeActivity extends BaseActivity {
     private void loginWithAccount() {
         // 帐号密码登入
         finish();
-        myStartActivity(new Intent(this, LoginAccountActivity.class));
+
+        Intent it = new Intent(this, LoginAccountActivity.class);
+        it.putExtra("class", getIntent().getStringExtra("class"));
+        myStartActivity(it);
     }
 }

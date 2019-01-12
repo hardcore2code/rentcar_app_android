@@ -8,25 +8,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.static4u.netcar.R;
-import com.static4u.netcar.utils.CommonUtil;
-import com.static4u.netcar.utils.ImageLoadUtil;
+import com.static4u.netcar.utils.image.ImageLoadUtil;
 
 import java.util.List;
 
 public class ImagePagerAdapter extends PagerAdapter {
-
-    private int width = 16, height = 9;
-    private int rw, rh;
 
     private int size;
     private int mChildCount;
     private Context context;
     private List<String> list;
 
-    ImagePagerAdapter(Context context, List<String> list) {
-        this.rw = CommonUtil.getScreenWidth(context) - CommonUtil.dipTopx(context, context.getResources().getDimension(R.dimen.activity_horizontal_margin) * 2);
-        this.rh = rw * height / width;
-
+    public ImagePagerAdapter(Context context, List<String> list) {
         this.context = context;
         this.list = list;
 
@@ -83,10 +76,10 @@ public class ImagePagerAdapter extends PagerAdapter {
     private View getPickupInfo(final int position) {
         ImageView v = new ImageView(context);
         final String item = list.get(position);
-        v.setLayoutParams(new ViewGroup.LayoutParams(rw, rh));
+        v.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         v.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
-        ImageLoadUtil.loadImage(context, item, v, R.drawable.ic_empty);
+        ImageLoadUtil.loadImage(context, item, v, R.drawable.drawable_empty);
         return v;
     }
 }

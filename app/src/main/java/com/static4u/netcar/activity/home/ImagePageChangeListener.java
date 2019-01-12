@@ -8,7 +8,6 @@ import android.widget.LinearLayout;
 import com.static4u.netcar.R;
 import com.static4u.netcar.model.CarInfo;
 import com.static4u.netcar.utils.CommonUtil;
-import com.static4u.netcar.utils.SLog;
 
 public class ImagePageChangeListener implements ViewPager.OnPageChangeListener {
 
@@ -47,8 +46,6 @@ public class ImagePageChangeListener implements ViewPager.OnPageChangeListener {
     @Override
     public void onPageSelected(int position) {
         if (count > 1) {
-            SLog.e(pIndex + " ---- " + count);
-
             View pView = ll.getChildAt(pIndex % count);
             pView.setBackgroundResource(R.drawable.dot_gray);
             pView.setLayoutParams(paramsDefault);

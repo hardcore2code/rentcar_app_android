@@ -3,9 +3,37 @@
           xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+
+    <!--//获取设备网络状态，禁用后无法获取网络状态-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!--//网络权限，当禁用后，无法进行检索等相关业务-->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!--//读取设备硬件信息，统计数据-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!--//读取系统信息，包含系统版本等信息，用作统计-->
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <!--//获取设备的网络状态，鉴权所需网络代理-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!--//允许sd卡写权限，需写入地图数据，禁用后无法显示地图-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--//这个权限用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!--//获取统计数据-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!--//使用步行AR导航，配置Camera权限-->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!--//程序在手机屏幕关闭后后台进程仍然运行-->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
 
     <application
         android:name=".app.App"
@@ -16,6 +44,33 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
+        <!-- 沉浸式状态栏 -->
+        <!-- 适配华为（huawei）刘海屏 -->
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true"/>
+        <!-- 适配小米（xiaomi）刘海屏 -->
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape"/>
+
+        <!-- 百度地图 -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="jqaFZUf2wMZwlqFIPniyTkiUMUkO4Vr0"/>
+
+        <!-- android 7.0 Uri FileUriExposedException异常解决 -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.static4u.netcar"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
         <activity
             android:name=".base.BaseActivity"
             android:screenOrientation="nosensor"/>
@@ -42,17 +97,49 @@
             android:name=".activity.MineActivity"
             android:screenOrientation="nosensor">
         </activity>
-        <activity android:name=".activity.CarListActivity">
+        <activity
+            android:name=".activity.CarListActivity"
+            android:screenOrientation="nosensor">
         </activity>
-        <activity android:name=".activity.login.LoginPhoneActivity">
+        <activity
+            android:name=".activity.login.LoginPhoneActivity"
+            android:screenOrientation="nosensor">
         </activity>
-        <activity android:name=".activity.login.SendCodeActivity">
+        <activity
+            android:name=".activity.login.SendCodeActivity"
+            android:screenOrientation="nosensor">
         </activity>
-        <activity android:name=".activity.login.LoginTypeActivity">
+        <activity
+            android:name=".activity.login.LoginTypeActivity"
+            android:screenOrientation="nosensor">
         </activity>
-        <activity android:name=".activity.login.LoginAccountActivity">
+        <activity
+            android:name=".activity.login.LoginAccountActivity"
+            android:screenOrientation="nosensor">
         </activity>
-        <activity android:name=".activity.login.EditInfoActivity">
+        <activity
+            android:name=".activity.login.EditInfoActivity"
+            android:screenOrientation="nosensor">
+        </activity>
+        <activity
+            android:name=".base.BasePhotoPickActivity"
+            android:screenOrientation="nosensor">
+        </activity>
+        <activity
+            android:name=".activity.detail.CarDetailActivity"
+            android:screenOrientation="nosensor">
+        </activity>
+        <activity
+            android:name=".activity.bag.BagListActivity"
+            android:screenOrientation="nosensor">
+        </activity>
+        <activity
+            android:name=".activity.comment.CommentListActivity"
+            android:screenOrientation="nosensor">
+        </activity>
+        <activity
+            android:name=".base.BaseListActivity"
+            android:screenOrientation="nosensor">
         </activity>
     </application>
 

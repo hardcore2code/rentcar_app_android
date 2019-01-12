@@ -1051,4 +1051,18 @@ public class CommonUtil {
             e.printStackTrace();
         }
     }
+
+    /**
+     * 打开拨号页面
+     *
+     * @param phoneStr 电话号码
+     */
+    public static void callPhone(Context context, String phoneStr) {
+        if (!phoneStr.startsWith("tel:")) {
+            phoneStr = "tel:" + phoneStr;
+        }
+        Intent contactIntent = new Intent(Intent.ACTION_DIAL, Uri.parse(phoneStr));
+        context.startActivity(contactIntent);
+        ((Activity) context).overridePendingTransition(R.anim.bottom_in, R.anim.push_stay);
+    }
 }

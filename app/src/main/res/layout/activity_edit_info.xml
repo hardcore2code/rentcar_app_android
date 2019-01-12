@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:onClick="clickView"
     tools:context=".activity.login.EditInfoActivity">
 
@@ -13,25 +15,26 @@
         android:id="@+id/iv_back"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="12dp"
         android:clickable="true"
         android:onClick="clickBack"
-        android:padding="10dp"
+        android:padding="12dp"
         android:src="@drawable/arrow_left"
-        android:tint="@color/black"/>
+        android:tint="@color/color_yellow"/>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/rl_bottom"
         android:layout_below="@id/iv_back"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin">
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="32dp">
 
             <TextView
                 android:id="@+id/tv_h1"
@@ -43,73 +46,316 @@
                 android:textSize="@dimen/font_24"
                 android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/tv_h2"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="姓名"
-                android:textColor="@color/font_dark"
-                android:textSize="@dimen/font_18"/>
+                android:layout_marginTop="24dp"
+                android:clickable="true"
+                android:onClick="clickHeader">
 
-            <com.static4u.netcar.ui.MyEditText
-                android:id="@+id/et_phone"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="8dp"
-                android:background="@null"
-                android:digits="0123456789"
-                android:gravity="center_vertical"
-                android:hint="输入手机号"
-                android:inputType="phone"
-                android:maxLength="11"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white_trans"
-                android:textSize="@dimen/font_20"/>
+                <ImageView
+                    android:id="@+id/iv_header"
+                    android:layout_width="@dimen/header_wh"
+                    android:layout_height="@dimen/header_wh"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/bg_header"/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/white"/>
+                <TextView
+                    android:id="@+id/tv_header_tip"
+                    android:layout_width="@dimen/header_wh"
+                    android:layout_height="@dimen/header_wh"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:text="头像"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_16"/>
+
+                <TextView
+                    android:id="@+id/tv_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/iv_header"
+                    android:text="15298374627"
+                    android:textColor="@color/font_gray"
+                    android:textSize="@dimen/font_18"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_phone"
+                    android:layout_marginTop="12dp"
+                    android:layout_toLeftOf="@id/iv_header"
+                    android:text="更换头像"
+                    android:textColor="@color/color_yellow"
+                    android:textSize="@dimen/font_16"/>
+            </RelativeLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="密码"
-                android:textColor="@color/white"
-                android:textSize="@dimen/font_18"/>
+                android:text="姓名"
+                android:textColor="@color/font_gray"
+                android:textSize="@dimen/font_16"/>
 
             <com.static4u.netcar.ui.MyEditText
-                android:id="@+id/et_pwd"
+                android:id="@+id/et_name"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginLeft="-4dp"
                 android:background="@null"
                 android:gravity="center_vertical"
-                android:hint="输入密码"
-                android:inputType="textPassword"
+                android:hint="输入姓名"
                 android:maxLength="20"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white_trans"
-                android:textSize="@dimen/font_20"/>
+                android:singleLine="true"
+                android:textColor="@color/font_dark"
+                android:textColorHint="@color/gray_c9c9c9"
+                android:textSize="@dimen/font_18"/>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/white"/>
+                android:layout_height="0.5dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/gray_line"/>
 
             <TextView
-                android:id="@+id/tv_error"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="请输入11位手机号"
-                android:textColor="@color/color_red"
-                android:textSize="@dimen/font_14"
-                android:visibility="gone"/>
+                android:text="电子邮箱"
+                android:textColor="@color/font_gray"
+                android:textSize="@dimen/font_16"/>
+
+            <com.static4u.netcar.ui.MyEditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-4dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="输入电子邮箱"
+                android:minHeight="48dp"
+                android:singleLine="true"
+                android:textColor="@color/font_dark"
+                android:textColorHint="@color/gray_c9c9c9"
+                android:textSize="@dimen/font_18"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/gray_line"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="详细地址"
+                android:textColor="@color/font_gray"
+                android:textSize="@dimen/font_16"/>
+
+            <com.static4u.netcar.ui.MyEditText
+                android:id="@+id/et_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-4dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="输入详细地址"
+                android:minHeight="48dp"
+                android:textColor="@color/font_dark"
+                android:textColorHint="@color/gray_c9c9c9"
+                android:textSize="@dimen/font_18"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/gray_line"/>
+
+            <TextView
+                android:id="@+id/tv_h2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="选填内容"
+                android:textColor="@color/font_dark"
+                android:textSize="@dimen/font_24"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="紧急联系人"
+                android:textColor="@color/font_gray"
+                android:textSize="@dimen/font_16"/>
+
+            <com.static4u.netcar.ui.MyEditText
+                android:id="@+id/et_emergency"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="-4dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="输入姓名"
+                android:singleLine="true"
+                android:textColor="@color/font_dark"
+                android:textColorHint="@color/gray_c9c9c9"
+                android:textSize="@dimen/font_18"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/gray_line"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="紧急联系人电话"
+                android:textColor="@color/font_gray"
+                android:textSize="@dimen/font_16"/>
+
+            <com.static4u.netcar.ui.MyEditText
+                android:id="@+id/et_emergency_phone"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="-4dp"
+                android:background="@null"
+                android:digits="0123456789"
+                android:gravity="center_vertical"
+                android:hint="输入联系电话"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:singleLine="true"
+                android:textColor="@color/font_dark"
+                android:textColorHint="@color/gray_c9c9c9"
+                android:textSize="@dimen/font_18"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/gray_line"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="收入"
+                android:textColor="@color/font_gray"
+                android:textSize="@dimen/font_16"/>
+
+            <com.static4u.netcar.ui.MyEditText
+                android:id="@+id/et_income"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="-4dp"
+                android:background="@null"
+                android:digits="1234567890."
+                android:gravity="center_vertical"
+                android:hint="输入收入"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textColor="@color/font_dark"
+                android:textColorHint="@color/gray_c9c9c9"
+                android:textSize="@dimen/font_18"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/gray_line"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="信息来源"
+                android:textColor="@color/font_gray"
+                android:textSize="@dimen/font_16"/>
+
+            <com.static4u.netcar.ui.MyEditText
+                android:id="@+id/et_info_come"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-4dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="输入信息来源"
+                android:minHeight="48dp"
+                android:textColor="@color/font_dark"
+                android:textColorHint="@color/gray_c9c9c9"
+                android:textSize="@dimen/font_18"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/gray_line"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="租车用途"
+                android:textColor="@color/font_gray"
+                android:textSize="@dimen/font_16"/>
+
+            <com.static4u.netcar.ui.MyEditText
+                android:id="@+id/et_use"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-4dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="输入租车用途"
+                android:minHeight="48dp"
+                android:singleLine="true"
+                android:textColor="@color/font_dark"
+                android:textColorHint="@color/gray_c9c9c9"
+                android:textSize="@dimen/font_18"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/gray_line"/>
         </LinearLayout>
     </ScrollView>
+
+    <RelativeLayout
+        android:id="@id/rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_line"/>
+
+        <TextView
+            android:id="@+id/tv_do"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@drawable/shape_yellow_button"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="doSubmit"
+            android:text="保   存"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_20"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
 
     <include layout="@layout/view_progress"/>
 </RelativeLayout>

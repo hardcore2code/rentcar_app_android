@@ -34,12 +34,15 @@ public class LoginPhoneActivity extends BaseActivity {
         }
 
         Intent it = new Intent(this, SendCodeActivity.class);
+        it.putExtra("class", getIntent().getStringExtra("class"));
         it.putExtra("phone", phone);
         myStartActivity(it);
     }
 
     public void clickOther(View view) {
         // 更多方式登入
-        myStartActivity(new Intent(this, LoginTypeActivity.class));
+        Intent it = new Intent(this, LoginTypeActivity.class);
+        it.putExtra("class", getIntent().getStringExtra("class"));
+        myStartActivity(it);
     }
 }

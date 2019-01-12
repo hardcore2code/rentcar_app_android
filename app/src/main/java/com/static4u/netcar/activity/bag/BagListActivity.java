@@ -1,13 +1,16 @@
-package com.static4u.netcar.activity.home;
+package com.static4u.netcar.activity.bag;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.static4u.netcar.R;
+import com.static4u.netcar.base.BaseActivity;
 import com.static4u.netcar.base.BaseListActivity;
 import com.static4u.netcar.constant.URLConstant;
+import com.static4u.netcar.model.BagInfo;
 import com.static4u.netcar.model.CarInfo;
 import com.static4u.netcar.utils.SLog;
 import com.static4u.netcar.utils.network.HttpClientUtil;
@@ -17,16 +20,19 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class HomeActivity extends BaseListActivity {
+public class BagListActivity extends BaseListActivity {
+    public static final int REQUEST_CODE_BAG = 103;
 
     @Bind(R.id.lv)
     PullToRefreshListView listView;
-    private HomeAdapter adapter;
-    private List<CarInfo> data;
+    private BagAdapter adapter;
+    private List<BagInfo> data;
+
+    private CarInfo car;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_bag_list);
         ButterKnife.bind(this);
         super.onCreate(savedInstanceState);
 
@@ -35,14 +41,27 @@ public class HomeActivity extends BaseListActivity {
     }
 
     private void initView() {
-        View header = LayoutInflater.from(this).inflate(R.layout.view_header_home, null);
-        initListView(listView, header);
+        initListView(listView, null);
     }
 
     private void loadData() {
+        car = (CarInfo) getIntent().getSerializableExtra("car");
+        if (car == null) {
+            showToast("车型信息异常，请稍后重试");
+            clickBack(listView);
+            return;
+        }
         pageParam = 1;
         requestDataInPage(pageParam, false);
     }
+
+    public static void startActivityForResult(BaseActivity activity, CarInfo info) {
+        Intent it = new Intent(activity, BagListActivity.class);
+        it.putExtra("car", info);
+        activity.myStartActivityForResult(it, REQUEST_CODE_BAG);
+        activity.overridePendingTransition(R.anim.bottom_in, R.anim.push_stay);
+    }
+
 
     @Override
     public void requestDataInPage(final int page, final boolean isRefresh) {
@@ -81,15 +100,31 @@ public class HomeActivity extends BaseListActivity {
 
     private void showList() {
         // TODO: 2019/1/7
-        data = getTestData(4);
-
+        data = getTestBag();
 
         if (adapter == null) {
-            adapter = new HomeAdapter(this, data);
+            adapter = new BagAdapter(this, data);
             listView.setAdapter(adapter);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    if (i < data.size()) {
+                        Intent it = getIntent();
+                        it.putExtra("bag", data.get(i));
+                        setResult(RESULT_OK, it);
+                        finish();
+                        overridePendingTransition(R.anim.push_stay, R.anim.bottom_out);
+                    }
+                }
+            });
         } else {
             adapter.update(data);
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.push_stay, R.anim.bottom_out);
+    }
 }

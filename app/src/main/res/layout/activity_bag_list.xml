@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:onClick="clickView"
+    tools:context=".activity.bag.BagListActivity">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:clickable="true"
+        android:onClick="clickBack"
+        android:padding="10dp"
+        android:src="@drawable/arrow_left"
+        android:tint="@color/color_yellow"/>
+
+    <TextView
+        android:id="@+id/tv_h1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_back"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="12dp"
+        android:text="套餐选择"
+        android:textColor="@color/font_dark"
+        android:textSize="@dimen/font_20"
+        android:textStyle="bold"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_h1"
+        android:layout_marginBottom="24dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="12dp">
+
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:divider="@null"
+            android:gravity="center"
+            android:groupIndicator="@null"
+            android:listSelector="@android:color/transparent"
+            android:overScrollMode="never"
+            android:scrollbarSize="@dimen/scroll_bar_width"
+            android:scrollbarThumbVertical="@color/scroll_bar_color"
+            android:scrollbarTrackVertical="@color/scroll_bar_bg"
+            android:scrollbars="none"
+            ptr:ptrListViewExtrasEnabled="false"
+            ptr:ptrMode="pullFromStart"
+            ptr:ptrOverScroll="true"
+            ptr:ptrScrollingWhileRefreshingEnabled="true"
+            ptr:ptrShowIndicator="false"/>
+
+        <include layout="@layout/view_empty"/>
+
+        <include layout="@layout/view_progress"/>
+    </FrameLayout>
+</RelativeLayout>

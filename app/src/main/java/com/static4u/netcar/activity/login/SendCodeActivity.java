@@ -1,7 +1,6 @@
 package com.static4u.netcar.activity.login;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.static4u.netcar.R;
-import com.static4u.netcar.activity.MineActivity;
 import com.static4u.netcar.base.BaseActivity;
 import com.static4u.netcar.business.SharedData;
 import com.static4u.netcar.constant.URLConstant;
@@ -84,10 +82,7 @@ public class SendCodeActivity extends BaseActivity {
                 progressView.setVisibility(View.GONE);
                 SharedData.setUserData(SendCodeActivity.this, phone, "12", "张三", "https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=8172ae52d31373f0e13267cdc566209e/d52a2834349b033b0b84caf317ce36d3d539bd8e.jpg");
 
-                Intent it = new Intent(SendCodeActivity.this, MineActivity.class);
-                it.putExtra("login", true);
-                myStartActivity(it);
-                overridePendingTransition(R.anim.push_stay, R.anim.push_right_out);
+                loginSucAndGoActivity();
             }
 
             @Override
@@ -98,10 +93,7 @@ public class SendCodeActivity extends BaseActivity {
                 // TODO: 2019/1/8
                 SharedData.setUserData(SendCodeActivity.this, phone, "12", "张三", "https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=8172ae52d31373f0e13267cdc566209e/d52a2834349b033b0b84caf317ce36d3d539bd8e.jpg");
 
-                Intent it = new Intent(SendCodeActivity.this, MineActivity.class);
-                it.putExtra("login", true);
-                myStartActivity(it);
-                overridePendingTransition(R.anim.push_stay, R.anim.push_right_out);
+                loginSucAndGoActivity();
             }
         });
         util.postHttpClient(URLConstant.HOST_FUNC, code);

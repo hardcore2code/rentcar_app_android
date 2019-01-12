@@ -24,7 +24,7 @@
                 android:id="@+id/vp_car"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:background="@color/background"/>
+                android:background="@drawable/drawable_empty"/>
 
             <LinearLayout
                 android:id="@+id/ll_index"
@@ -53,7 +53,7 @@
                 android:textSize="@dimen/font_12"/>
 
             <TextView
-                android:id="@+id/tv_company"
+                android:id="@+id/tv_brand"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/vp_car"
@@ -68,7 +68,7 @@
                 android:id="@+id/tv_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_company"
+                android:layout_below="@id/tv_brand"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"

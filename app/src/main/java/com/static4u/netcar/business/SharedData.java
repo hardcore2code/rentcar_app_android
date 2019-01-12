@@ -8,10 +8,18 @@ import com.static4u.netcar.utils.DESUtils;
 
 public class SharedData {
     private static final String APP_DATA = "netCar";
-    public static final String KEY_PHONE = "key_phone";
-    private static final String KEY_NAME = "key_name";
+    private static final String KEY_PHONE = "key_phone";
     private static final String KEY_PWD = "key_pwd";
+
+    public static final String KEY_NAME = "key_name";
     public static final String KEY_HEADER = "key_header";
+    public static final String KEY_EMAIL= "key_email";
+    public static final String KEY_ADDRESS= "key_address";
+    public static final String KEY_EMERGENCY_NAME= "key_emergency_name";
+    public static final String KEY_EMERGENCY_PHONE= "key_emergency_phone";
+    public static final String KEY_INCOME= "key_income";
+    public static final String KEY_INFO_COME= "key_info_come";
+    public static final String KEY_USE= "key_use";
 
     /**
      * 保存用户信息

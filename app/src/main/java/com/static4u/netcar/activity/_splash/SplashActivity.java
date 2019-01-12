@@ -7,7 +7,6 @@ import android.os.Handler;
 import com.static4u.netcar.R;
 import com.static4u.netcar.activity.home.HomeActivity;
 import com.static4u.netcar.base.BaseActivity;
-import com.static4u.netcar.business.SharedData;
 
 
 public class SplashActivity extends BaseActivity {
@@ -17,7 +16,7 @@ public class SplashActivity extends BaseActivity {
         setContentView(R.layout.activity_splash);
         super.onCreate(savedInstanceState);
 
-        SharedData.setUserData(this, "", "", "", "");
+//        SharedData.setUserData(this, "", "", "", "");
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

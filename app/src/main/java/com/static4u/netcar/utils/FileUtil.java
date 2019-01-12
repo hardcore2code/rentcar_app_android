@@ -142,7 +142,7 @@ public class FileUtil {
      * 获取APP默认存储路径
      */
     public static String getDefaultPath() {
-        String path = getSDPath() + "/tax/";
+        String path = getSDPath() + "/netCar/";
         File dir = new File(path);
         if (!dir.isDirectory()) {
             dir.mkdirs();

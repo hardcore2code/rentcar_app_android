@@ -1,4 +1,4 @@
-package com.static4u.netcar.utils;
+package com.static4u.netcar.utils.image;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -19,6 +19,7 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.static4u.netcar.R;
 import com.static4u.netcar.constant.URLConstant;
+import com.static4u.netcar.utils.SLog;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -36,7 +37,7 @@ public class ImageLoadUtil {
     /**
      * 默认占位图ID
      */
-    private static int IMAGE_PLACE_HOLDER_ID = R.drawable.ic_empty;
+    private static int IMAGE_PLACE_HOLDER_ID = R.drawable.drawable_empty;
 
     /**
      * 清除图片缓存，必须在主线程调用
@@ -100,6 +101,76 @@ public class ImageLoadUtil {
                     }
                 }
             });
+        } catch (Exception e) {
+            if (URLConstant.FORCE_LOG) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void loadImage(@NonNull Context context, @NonNull byte[] bytes, @NonNull final OnImageSavedListener listener) {
+        try {
+            Glide.with(context).load(bytes).asBitmap().into(new SimpleTarget<Bitmap>() {
+                @Override
+                public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                    if (resource != null && resource.getWidth() * resource.getHeight() > 10) {
+                        listener.onImageSavedSuccess(resource);
+                    } else {
+                        listener.onImageSavedFailed();
+                    }
+                }
+            });
+        } catch (Exception e) {
+            if (URLConstant.FORCE_LOG) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * 加载图片
+     */
+    public static void loadImageWithoutCache(@NonNull Context context, @NonNull String url, @NonNull final OnImageSavedListener listener) {
+        try {
+            Glide.with(context)
+                    .load(url)
+                    .asBitmap()
+                    .skipMemoryCache(true)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .into(new SimpleTarget<Bitmap>() {
+                        @Override
+                        public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                            if (resource != null && resource.getWidth() * resource.getHeight() > 10) {
+                                listener.onImageSavedSuccess(resource);
+                            } else {
+                                listener.onImageSavedFailed();
+                            }
+                        }
+                    });
+        } catch (Exception e) {
+            if (URLConstant.FORCE_LOG) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void loadImageWithoutCache(@NonNull Context context, @NonNull byte[] bytes, @NonNull final OnImageSavedListener listener) {
+        try {
+            Glide.with(context)
+                    .load(bytes)
+                    .asBitmap()
+                    .skipMemoryCache(true)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .into(new SimpleTarget<Bitmap>() {
+                        @Override
+                        public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                            if (resource != null && resource.getWidth() * resource.getHeight() > 10) {
+                                listener.onImageSavedSuccess(resource);
+                            } else {
+                                listener.onImageSavedFailed();
+                            }
+                        }
+                    });
         } catch (Exception e) {
             if (URLConstant.FORCE_LOG) {
                 e.printStackTrace();
@@ -270,6 +341,12 @@ public class ImageLoadUtil {
             e.printStackTrace();
         }
         return "".getBytes();
+    }
+
+    public static byte[] getBytesByBitmap(Bitmap bitmap) {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream(bitmap.getByteCount());
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+        return outputStream.toByteArray();
     }
 
     public interface OnImageSavedListener {

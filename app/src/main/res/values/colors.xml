@@ -38,6 +38,8 @@
 
     <drawable name="transparent">#00ffffff</drawable>
 
+    <drawable name="drawable_empty">#f1f1f1</drawable>
+
     <color name="grid_bg_default_color">#fff5f5f5</color>
     <color name="orange_pressed_color">#fb7805</color>
     <color name="orange_original_color">#ff9538</color>

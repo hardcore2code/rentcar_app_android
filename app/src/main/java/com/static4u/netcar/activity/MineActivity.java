@@ -15,12 +15,10 @@ import com.static4u.netcar.activity.login.LoginPhoneActivity;
 import com.static4u.netcar.base.BaseActivity;
 import com.static4u.netcar.business.SharedData;
 import com.static4u.netcar.utils.CommonUtil;
-import com.static4u.netcar.utils.ImageLoadUtil;
+import com.static4u.netcar.utils.image.ImageLoadUtil;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-
-import static com.static4u.netcar.business.SharedData.KEY_HEADER;
 
 public class MineActivity extends BaseActivity {
     public static final int REQUEST_CODE_MINE = 101;
@@ -111,7 +109,8 @@ public class MineActivity extends BaseActivity {
         } else {
             // 已登入
             tvName.setText(SharedData.getUserName(this));
-            ImageLoadUtil.loadImage(this, SharedData.getStr(this, KEY_HEADER), new ImageLoadUtil.OnImageSavedListener() {
+
+            ImageLoadUtil.loadImage(this, SharedData.getStr(this, SharedData.KEY_HEADER), new ImageLoadUtil.OnImageSavedListener() {
                 @Override
                 public void onImageSavedSuccess(byte[] img) {
                 }
@@ -157,6 +156,7 @@ public class MineActivity extends BaseActivity {
                 if (CommonUtil.isEmptyOrNull(SharedData.getUserPhone(this))) {
                     // 未登入
                     Intent it = new Intent(this, LoginPhoneActivity.class);
+                    it.putExtra("class", "MineActivity");
                     myStartActivity(it);
                     return;
                 }
@@ -164,7 +164,6 @@ public class MineActivity extends BaseActivity {
         }
 
         // 已登入
-        showToast(view.getId() + "111");
         switch (view.getId()) {
             case R.id.rl_info:
                 // 编辑个人资料
